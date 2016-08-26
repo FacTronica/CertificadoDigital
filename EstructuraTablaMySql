@@ -1,0 +1,16 @@
+CREATE TABLE IF NOT EXISTS `tbl_siicertificados` (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id unico autoincremental',
+  `rut` varchar(10) COLLATE utf8_spanish_ci NOT NULL COMMENT 'Rut del Propietario del Certificado Formato xxxxxxxx-x',
+  `nombre` varchar(255) COLLATE utf8_spanish_ci NOT NULL COMMENT 'Nombre del Propietario del Certificado',
+  `estado` int(1) NOT NULL COMMENT '1=Vigente 0=Expirado (Switch indicador de Vigencia del Certificado)',
+  `fecha_inicio` varchar(10) COLLATE utf8_spanish_ci NOT NULL COMMENT 'Fecha de Inicio (Adquisición) del certificado',
+  `fecha_termino` varchar(10) COLLATE utf8_spanish_ci NOT NULL COMMENT 'Fecha de Termino (Expiración) del certificado',
+  `modulo` text COLLATE utf8_spanish_ci NOT NULL COMMENT 'Modulo del certificado',
+  `exponente` varchar(32) COLLATE utf8_spanish_ci NOT NULL COMMENT 'Exponente del Certificado (AQAB) generalmente',
+  `cert_x509` text COLLATE utf8_spanish_ci NOT NULL COMMENT 'Certificado x509',
+  `privkey_sinpass` text COLLATE utf8_spanish_ci NOT NULL COMMENT 'Llave Privada sin Clave debe incluir -----BEGIN... y ...END-----',
+  `nombre_archivo` varchar(255) COLLATE utf8_spanish_ci NOT NULL COMMENT 'Nombre del Archivo del certificado en .pfx (opcional)',
+  `pass_certificado` varchar(32) COLLATE utf8_spanish_ci NOT NULL COMMENT 'Clave del Certificado',
+  UNIQUE KEY `id` (`id`),
+  KEY `estado` (`estado`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
